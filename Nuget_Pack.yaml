@@ -1,0 +1,41 @@
+parameters:
+- name: nuSpecFilePathForPackaging
+  type: string
+
+- name: versioningScheme
+  type: string
+  default: 'byEnvVar'
+
+- name: versionEnvVar
+  type: string
+  default: 'fullVersion'
+
+- name: configuration
+  type: string
+  default: '' 
+
+- name: packDestination
+  type: string
+  default: ''
+
+- name: includeSymbols
+  type: boolean
+  default: false
+
+- name: toolPackage
+  type: boolean
+  default: false
+
+
+steps:
+- task: NuGetCommand@2
+  displayName: 'Nuget Pack'
+  inputs:
+    command: 'pack'
+    packagesToPack: ${{ parameters.nuSpecFilePathForPackaging }}
+    versioningScheme: ${{ parameters.versioningScheme }
+    versionEnvVar: ${{ parameters.versionEnvVar }
+    configuration: ${{ parameters.configuration }}
+    packDestination: ${{ parameters.packDestination }}
+    includeSymbols: ${{ parameters.includeSymbols }}
+    toolPackage: ${{ parameters.toolPackage }}
