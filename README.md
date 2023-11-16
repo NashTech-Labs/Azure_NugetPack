@@ -36,7 +36,7 @@ You can directly call a particular template as per the requirement. for example:
 
   steps:
   # passing the parameters
-  - template: templates/Nuget_Pack.yaml
+  - template: Nuget_Pack.yaml
     parameters:
       nuSpecFilePathForPackaging: ${{ parameters.nuSpecFilePathForPackaging }}
       versioningScheme: ${{ parameters.versioningScheme }}
